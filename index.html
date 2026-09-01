@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LuxeHaven Properties — Premier Luxury Real Estate</title>
+  <title>LuxeHaven International — Luxury Real Estate Advisory</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,16 +15,16 @@
 
   <style>
     :root {
-      --bg: #070a12;
-      --bg-surface: #0e1424;
-      --bg-card: #131b30;
-      --bg-card-hover: #19233f;
-      --border: #1e2942;
-      --border-light: #2c3b5d;
+      --bg: #050811;
+      --bg-surface: #0b1120;
+      --bg-card: #10192e;
+      --bg-card-hover: #16223e;
+      --border: #1e2c4a;
+      --border-light: #2c3e66;
       --gold: #d4af37;
-      --gold-light: #f3e5ab;
-      --gold-dark: #aa8524;
-      --gold-glow: rgba(212, 175, 55, 0.18);
+      --gold-light: #f5e6a8;
+      --gold-dark: #9b7d23;
+      --gold-glow: rgba(212, 175, 55, 0.15);
       --accent: #38bdf8;
       --text: #f8fafc;
       --text-muted: #94a3b8;
@@ -43,28 +43,41 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 1240px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    /* Top Navigation */
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(90deg, #070c18, #131d35, #070c18);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 0;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .top-bar strong { color: #fff; font-weight: 600; }
+
+    /* Main Navigation */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 10, 18, 0.88);
-      backdrop-filter: blur(18px);
+      background: rgba(5, 8, 17, 0.92);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 76px;
+      height: 80px;
     }
     .brand {
       display: flex;
@@ -75,37 +88,37 @@
       cursor: pointer;
     }
     .brand-logo {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--gold), #7a5c12);
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--gold), #705315);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #070a12;
-      font-weight: 800;
+      color: #050811;
+      font-weight: 900;
       font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+      font-size: 1.25rem;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
     }
     .brand-name {
       font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 1.35rem;
-      letter-spacing: 0.04em;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
     }
     .brand-name span { color: var(--gold); }
     
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2.2rem;
+      gap: 1.8rem;
       list-style: none;
     }
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.925rem;
       font-weight: 500;
       cursor: pointer;
       transition: color 0.2s;
@@ -125,16 +138,11 @@
       border-radius: 2px;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
     .btn-gold {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #070a12;
+      color: #050811;
       font-weight: 700;
-      padding: 0.65rem 1.4rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 8px;
       text-decoration: none;
       font-size: 0.9rem;
@@ -143,7 +151,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.25s;
     }
     .btn-gold:hover {
       transform: translateY(-2px);
@@ -154,7 +162,7 @@
       border: 1px solid var(--border-light);
       color: var(--text);
       font-weight: 600;
-      padding: 0.65rem 1.4rem;
+      padding: 0.65rem 1.3rem;
       border-radius: 8px;
       font-size: 0.9rem;
       cursor: pointer;
@@ -166,32 +174,49 @@
     .btn-outline:hover {
       border-color: var(--gold);
       color: var(--gold-light);
-      background: rgba(212, 175, 55, 0.05);
+      background: rgba(212, 175, 55, 0.06);
     }
 
-    /* Mobile Nav Toggle */
-    .mobile-menu-btn {
-      display: none;
-      background: transparent;
-      border: none;
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    /* Main View Containers */
+    /* Page View Containers */
     main { flex-grow: 1; }
-    .page-view { display: none; animation: fadeIn 0.3s ease; }
+    .page-view { display: none; animation: pageFade 0.3s ease; }
     .page-view.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pageFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
 
     /* =========================================================
-       HERO & HOME PAGE
+       HERO & HOME
        ========================================================= */
     .hero {
       position: relative;
-      padding: 6.5rem 0 5.5rem;
+      padding: 7rem 0 6rem;
       text-align: center;
-      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.09) 0%, transparent 65%);
+      background: radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
     }
     .hero-badge {
       display: inline-flex;
@@ -199,128 +224,227 @@
       gap: 8px;
       padding: 6px 16px;
       background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      border: 1px solid rgba(212, 175, 55, 0.35);
       color: var(--gold-light);
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 9999px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.05em;
     }
     .hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
       line-height: 1.15;
       font-weight: 800;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(to right, #ffffff, #eaeaea, var(--gold-light));
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 30%, #e2e8f0 60%, var(--gold-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
       color: var(--text-muted);
-      font-size: 1.15rem;
-      max-width: 680px;
+      font-size: 1.2rem;
+      max-width: 720px;
       margin: 0 auto 3rem;
     }
-
-    /* Home Search Bar */
-    .search-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.5rem;
-      max-width: 1040px;
-      margin: 0 auto;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
-      gap: 1.2rem;
-      align-items: center;
-    }
-    .filter-group {
+    .hero-cta-group {
       display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-    .filter-group label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-    .filter-group select, .filter-group input {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.75rem 0.9rem;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.925rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .filter-group select:focus, .filter-group input:focus {
-      border-color: var(--gold);
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3.5rem;
     }
 
-    /* Stats Bar */
-    .stats-bar {
+    /* Stats Strip */
+    .stats-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
       padding: 3rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      margin: 4rem auto;
+      margin: 3rem auto;
       text-align: center;
     }
     .stat-number {
       font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       color: var(--gold-light);
       margin-bottom: 4px;
     }
     .stat-label {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* Section Titles */
+    /* Section Headings */
     .section-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
     .section-tag {
       color: var(--gold);
       font-size: 0.825rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       margin-bottom: 0.5rem;
     }
     .section-title {
       font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
     }
     .section-subtitle {
       color: var(--text-muted);
       font-size: 1.05rem;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto;
+    }
+
+    /* =========================================================
+       PROPERTIES PAGE (WITH SIDEBAR FILTER LAYOUT)
+       ========================================================= */
+    .properties-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      padding: 2.5rem 0 5rem;
+    }
+
+    /* Left Sticky Sidebar Panel */
+    .filter-sidebar {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .sidebar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .sidebar-title button {
+      background: transparent;
+      border: none;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .sidebar-section {
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .search-input-wrap {
+      position: relative;
+    }
+    .search-input-wrap input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.75rem 0.9rem 0.75rem 2.4rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .search-input-wrap input:focus { border-color: var(--gold); }
+    .search-input-wrap i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 15px;
+      height: 15px;
+    }
+
+    /* Radio / Chips in Sidebar */
+    .filter-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .chip-item:hover, .chip-item.active {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--gold-light);
+    }
+    .chip-item input { display: none; }
+
+    /* Results Header in Catalog */
+    .catalog-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .results-count {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .results-count strong { color: #fff; }
+    .sort-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sort-wrap select {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      outline: none;
     }
 
     /* Property Cards Grid */
     .listings-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 2rem;
-      margin-bottom: 5rem;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.75rem;
     }
     .property-card {
       background: var(--bg-card);
@@ -331,66 +455,89 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
+      position: relative;
     }
     .property-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       border-color: rgba(212, 175, 55, 0.45);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
       background: var(--bg-card-hover);
     }
     .card-media {
       position: relative;
-      height: 240px;
+      height: 230px;
       overflow: hidden;
     }
     .card-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 0.5s ease;
     }
     .property-card:hover .card-media img {
       transform: scale(1.06);
     }
     .card-badge {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(7, 10, 18, 0.85);
-      backdrop-filter: blur(10px);
+      top: 12px;
+      left: 12px;
+      background: rgba(5, 8, 17, 0.88);
+      backdrop-filter: blur(8px);
       color: var(--gold-light);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      padding: 4px 12px;
-      font-size: 0.75rem;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 4px 10px;
+      font-size: 0.725rem;
       font-weight: 700;
       text-transform: uppercase;
       border-radius: 6px;
       letter-spacing: 0.05em;
     }
+    .card-fav-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(5, 8, 17, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .card-fav-btn:hover, .card-fav-btn.saved {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: #fff;
+    }
     .card-price {
       position: absolute;
-      bottom: 14px;
-      right: 14px;
-      background: rgba(7, 10, 18, 0.92);
-      backdrop-filter: blur(10px);
+      bottom: 12px;
+      right: 12px;
+      background: rgba(5, 8, 17, 0.92);
+      backdrop-filter: blur(8px);
       color: #fff;
       font-family: 'Cinzel', serif;
       font-weight: 800;
-      font-size: 1.25rem;
-      padding: 6px 14px;
-      border-radius: 8px;
+      font-size: 1.2rem;
+      padding: 4px 12px;
+      border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
     .card-body {
-      padding: 1.5rem;
+      padding: 1.35rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       color: #fff;
       transition: color 0.2s;
     }
@@ -399,8 +546,8 @@
     }
     .card-address {
       color: var(--text-muted);
-      font-size: 0.875rem;
-      margin-bottom: 1.2rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -410,20 +557,14 @@
       justify-content: space-between;
       background: var(--bg-surface);
       border: 1px solid var(--border);
-      padding: 0.85rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 1.25rem;
-      font-size: 0.875rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
-    .spec-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .spec-item strong {
-      color: var(--text);
-    }
+    .spec-item { display: flex; align-items: center; gap: 5px; }
+    .spec-item strong { color: var(--text); }
     .card-footer {
       display: flex;
       align-items: center;
@@ -433,42 +574,16 @@
       border-top: 1px solid var(--border);
       color: var(--gold);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
     }
 
     /* =========================================================
-       PROPERTY DETAIL VIEW PAGE
+       PROPERTY DETAIL VIEW
        ========================================================= */
-    .detail-view {
-      padding: 2.5rem 0 5rem;
-    }
-    .back-bar {
-      margin-bottom: 2rem;
-    }
-    .back-btn {
-      background: transparent;
-      border: 1px solid var(--border-light);
-      color: var(--text);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-    .back-btn:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
-      background: rgba(212, 175, 55, 0.08);
-    }
-
-    /* Detail Gallery */
+    .detail-view { padding: 2.5rem 0 5rem; }
     .detail-gallery {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 2.2fr 1fr;
       gap: 1rem;
       height: 480px;
       border-radius: 16px;
@@ -476,54 +591,23 @@
       margin-bottom: 2.5rem;
       background: var(--bg-surface);
     }
-    .gallery-main {
-      height: 100%;
-      position: relative;
-    }
-    .gallery-main img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .gallery-thumbs {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 1rem;
-      height: 100%;
-    }
-    .gallery-thumb-item {
-      height: 100%;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-    }
-    .gallery-thumb-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-    .gallery-thumb-item:hover img {
-      transform: scale(1.05);
-    }
+    .gallery-main { height: 100%; position: relative; }
+    .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-thumbs { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; height: 100%; }
+    .gallery-thumb-item { height: 100%; overflow: hidden; cursor: pointer; position: relative; }
+    .gallery-thumb-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .gallery-thumb-item:hover img { transform: scale(1.05); }
 
-    /* Detail Layout (Content + Sticky Sidebar) */
     .detail-layout {
       display: grid;
       grid-template-columns: 2fr 1.2fr;
       gap: 3rem;
       align-items: start;
     }
-
     .detail-header {
       margin-bottom: 2rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 1.5rem;
-    }
-    .detail-tags {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 0.75rem;
     }
     .detail-title {
       font-family: 'Cinzel', serif;
@@ -532,15 +616,6 @@
       color: #fff;
       margin-bottom: 0.5rem;
     }
-    .detail-address {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Highlight Key Metrics */
     .metrics-bar {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -551,32 +626,15 @@
       padding: 1.25rem;
       margin-bottom: 2.5rem;
     }
-    .metric-box {
-      text-align: center;
-    }
-    .metric-icon {
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-    .metric-val {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .metric-lbl {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .metric-box { text-align: center; }
+    .metric-icon { color: var(--gold); margin-bottom: 4px; }
+    .metric-val { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .metric-lbl { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; }
 
-    /* Detail Sections */
-    .detail-section {
-      margin-bottom: 2.5rem;
-    }
+    .detail-section { margin-bottom: 2.5rem; }
     .detail-section-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 1rem;
       display: flex;
@@ -584,17 +642,9 @@
       gap: 10px;
       color: #fff;
     }
-    .detail-section-title i { color: var(--gold); }
-    .detail-desc {
-      color: #cbd5e1;
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    /* Amenities Grid */
     .amenities-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 1rem;
     }
     .amenity-chip {
@@ -605,29 +655,19 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 0.925rem;
       color: #e2e8f0;
     }
     .amenity-chip i { color: var(--gold); }
-
-    /* Highlights list */
     .highlights-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.85rem;
       list-style: none;
     }
-    .highlight-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #cbd5e1;
-      font-size: 0.95rem;
-    }
+    .highlight-item { display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: 0.95rem; }
     .highlight-item i { color: #22c55e; flex-shrink: 0; }
 
-    /* Sticky Booking / Inquiry Sidebar */
     .detail-sidebar {
       position: sticky;
       top: 100px;
@@ -636,12 +676,6 @@
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-    }
-    .sidebar-price-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
     }
     .sidebar-price {
       font-family: 'Cinzel', serif;
@@ -652,9 +686,7 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 1rem;
     }
-    .form-field {
-      margin-bottom: 1rem;
-    }
+    .form-field { margin-bottom: 1rem; }
     .form-field label {
       display: block;
       font-size: 0.8rem;
@@ -674,28 +706,112 @@
       font-size: 0.9rem;
       outline: none;
     }
-    .form-field input:focus, .form-field textarea:focus {
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--gold); }
+
+    /* =========================================================
+       PAGE: NEIGHBORHOODS & DESTINATIONS
+       ========================================================= */
+    .neighborhoods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .dest-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .dest-card:hover {
+      transform: translateY(-6px);
       border-color: var(--gold);
     }
-    .sidebar-submit {
-      width: 100%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #070a12;
-      border: none;
-      padding: 0.95rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      transition: all 0.2s;
+    .dest-img {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
     }
-    .sidebar-submit:hover {
-      box-shadow: 0 6px 20px var(--gold-glow);
+    .dest-img img { width: 100%; height: 100%; object-fit: cover; }
+    .dest-body { padding: 1.75rem; }
+    .dest-title { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+    .dest-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background: var(--bg-card);
+      padding: 0.85rem;
+      border-radius: 8px;
+      margin: 1rem 0 1.25rem;
+      font-size: 0.85rem;
     }
 
     /* =========================================================
-       MORTGAGE CALCULATOR FULL PAGE
+       PAGE: PRIVATE CLIENT SERVICES
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      background: var(--bg-card);
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .service-title { font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .service-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+    /* =========================================================
+       PAGE: MARKET JOURNAL & INSIGHTS
+       ========================================================= */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .journal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .journal-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+    .journal-img { height: 220px; overflow: hidden; }
+    .journal-img img { width: 100%; height: 100%; object-fit: cover; }
+    .journal-body { padding: 1.75rem; }
+    .journal-date { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .journal-title { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+
+    /* =========================================================
+       PAGE: MORTGAGE SUITE
        ========================================================= */
     .calc-page-box {
       background: var(--bg-surface);
@@ -710,9 +826,7 @@
       gap: 3rem;
       align-items: center;
     }
-    .slider-group {
-      margin-bottom: 1.5rem;
-    }
+    .slider-group { margin-bottom: 1.5rem; }
     .slider-header {
       display: flex;
       justify-content: space-between;
@@ -737,13 +851,6 @@
       text-align: center;
       box-shadow: 0 10px 30px var(--gold-glow);
     }
-    .calc-result-label {
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
     .calc-result-value {
       font-family: 'Cinzel', serif;
       font-size: 3rem;
@@ -762,75 +869,18 @@
     .calc-breakdown span { color: var(--text-muted); display: block; font-size: 0.8rem; }
     .calc-breakdown strong { color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; }
 
-    /* =========================================================
-       ABOUT & CONTACT PAGES
-       ========================================================= */
-    .about-story {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-    .about-img {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-    .team-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 1.5rem;
-    }
-    .team-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    .team-name { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: #fff; }
-    .team-role { color: var(--gold); font-size: 0.85rem; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
-    }
-    .office-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .office-card i { color: var(--gold); margin-top: 4px; }
-
     /* Footer */
     footer.site-footer {
       border-top: 1px solid var(--border);
       background: var(--bg-surface);
-      padding: 4rem 0 2rem;
+      padding: 4.5rem 0 2.5rem;
       margin-top: auto;
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
     .footer-col h4 {
       font-family: 'Cinzel', serif;
@@ -844,7 +894,7 @@
     .footer-col ul li a:hover { color: var(--gold-light); }
     .footer-bottom {
       border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
+      padding-top: 1.75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -855,22 +905,28 @@
     }
 
     /* Responsive */
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
+      .properties-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { position: static; margin-bottom: 2rem; }
       .detail-gallery { grid-template-columns: 1fr; height: auto; }
       .detail-layout { grid-template-columns: 1fr; }
-      .gallery-thumbs { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; height: 160px; }
-      .calc-grid, .about-story, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
-      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .calc-grid, .footer-grid { grid-template-columns: 1fr; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .listings-grid { grid-template-columns: 1fr; }
-      .highlights-list { grid-template-columns: 1fr; }
+      .listings-grid, .highlights-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      ✨ <strong>Private Portfolio Access:</strong> Off-market residential acquisitions & waterfront estates in Austin, Malibu & Miami.
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="site-header">
@@ -882,78 +938,65 @@
       <ul class="nav-links">
         <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
         <li><a onclick="navigateTo('properties')" id="nav-properties">Properties</a></li>
-        <li><a onclick="navigateTo('calculator')" id="nav-calculator">Mortgage Estimator</a></li>
-        <li><a onclick="navigateTo('about')" id="nav-about">About Us</a></li>
+        <li><a onclick="navigateTo('neighborhoods')" id="nav-neighborhoods">Neighborhoods</a></li>
+        <li><a onclick="navigateTo('services')" id="nav-services">Private Advisory</a></li>
+        <li><a onclick="navigateTo('journal')" id="nav-journal">Market Journal</a></li>
+        <li><a onclick="navigateTo('calculator')" id="nav-calculator">Mortgage Suite</a></li>
+        <li><a onclick="navigateTo('about')" id="nav-about">About</a></li>
         <li><a onclick="navigateTo('contact')" id="nav-contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button class="btn-gold" onclick="navigateTo('properties')">
           <i data-lucide="compass" style="width: 16px; height: 16px;"></i>
-          Explore Residences
+          Explore Portfolio
         </button>
       </div>
     </div>
   </header>
+
+  <!-- Toast for User Feedback -->
+  <div id="app-toast" class="toast">
+    <i data-lucide="check-circle-2" style="color: var(--gold); width: 18px; height: 18px;"></i>
+    <span id="toast-message">Notification message</span>
+  </div>
 
   <main>
     <!-- =========================================================
          PAGE 1: HOME
          ========================================================= -->
     <div id="page-home" class="page-view active">
-      <!-- Hero -->
       <section class="hero">
         <div class="container">
           <div class="hero-badge">
-            <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
-            Curated Prime International Real Estate
+            <i data-lucide="crown" style="width: 15px; height: 15px;"></i>
+            Global Ultra-Luxury Residential Advisory
           </div>
           <h1>Exquisite Living,<br />Tailored to Perfection.</h1>
-          <p>Discover premier architectural masterpieces in Austin, Malibu, Miami, and beyond. Private estates, waterfront villas, and iconic penthouses.</p>
+          <p>Representing trophy architectural masterworks in Austin, Malibu, Miami, and beyond. Private estates, waterfront compounds, and iconic penthouses.</p>
 
-          <!-- Search Filter Bar -->
-          <div class="search-box">
-            <div class="filter-group">
-              <label>Location</label>
-              <select id="home-filter-city">
-                <option value="">All Locations</option>
-                <option value="Austin">Austin, TX</option>
-                <option value="Malibu">Malibu, CA</option>
-                <option value="Miami">Miami, FL</option>
-                <option value="Round Rock">Round Rock, TX</option>
-              </select>
-            </div>
-            <div class="filter-group">
-              <label>Property Type</label>
-              <select id="home-filter-type">
-                <option value="">All Types</option>
-                <option value="villa">Villa & Estate</option>
-                <option value="apartment">Penthouse / Apartment</option>
-                <option value="condo">Luxury Condominium</option>
-                <option value="house">Single Family Residence</option>
-              </select>
-            </div>
-            <div class="filter-group">
-              <label>Max Budget</label>
-              <input type="number" id="home-filter-maxPrice" placeholder="e.g. 3000000" />
-            </div>
-            <button class="btn-gold" style="height: 48px; border-radius: 10px;" onclick="searchFromHome()">
-              <i data-lucide="search" style="width: 16px; height: 16px;"></i>
-              Search
+          <div class="hero-cta-group">
+            <button class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1rem;" onclick="navigateTo('properties')">
+              <i data-lucide="search" style="width: 18px; height: 18px;"></i>
+              Browse Available Listings
+            </button>
+            <button class="btn-outline" style="padding: 0.9rem 2rem; font-size: 1rem;" onclick="navigateTo('neighborhoods')">
+              <i data-lucide="map" style="width: 18px; height: 18px;"></i>
+              Explore Prime Locations
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Stats -->
+      <!-- Stats Bar -->
       <div class="container">
-        <div class="stats-bar">
+        <div class="stats-strip">
           <div>
             <div class="stat-number">$2.4B+</div>
             <div class="stat-label">Luxury Volume Closed</div>
           </div>
           <div>
             <div class="stat-number">100%</div>
-            <div class="stat-label">White-Glove Discretion</div>
+            <div class="stat-label">Discreet Representation</div>
           </div>
           <div>
             <div class="stat-number">15+</div>
@@ -961,75 +1004,203 @@
           </div>
           <div>
             <div class="stat-number">#1</div>
-            <div class="stat-label">Ranked Luxury Firm</div>
+            <div class="stat-label">Boutique Luxury Firm</div>
           </div>
         </div>
       </div>
 
-      <!-- Featured Listings -->
-      <section class="container" style="padding: 2rem 0 4rem;">
+      <!-- Featured Portfolio Section -->
+      <section class="container" style="padding: 3rem 0 4rem;">
         <div class="section-header">
-          <div class="section-tag">Exclusive Portfolio</div>
-          <h2 class="section-title">Featured Prime Listings</h2>
-          <p class="section-subtitle">Handpicked architectural masterworks currently available for acquisition.</p>
+          <div class="section-tag">Curated Collection</div>
+          <h2 class="section-title">Featured Trophy Residences</h2>
+          <p class="section-subtitle">A preview of world-class architectural acquisitions available exclusively through LuxeHaven.</p>
         </div>
         <div id="home-featured-grid" class="listings-grid">
           <!-- Rendered via JS -->
         </div>
-        <div style="text-align: center; margin-top: -2rem; margin-bottom: 4rem;">
-          <button class="btn-outline" style="padding: 0.85rem 2rem; font-size: 1rem;" onclick="navigateTo('properties')">
-            View All 6 Available Listings <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn-outline" style="padding: 0.9rem 2.2rem; font-size: 1rem;" onclick="navigateTo('properties')">
+            View Complete Portfolio (6 Listings) <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
           </button>
+        </div>
+      </section>
+
+      <!-- Prime Neighborhoods Preview on Home -->
+      <section class="container" style="padding: 2rem 0 5rem;">
+        <div class="section-header">
+          <div class="section-tag">Prime Destinations</div>
+          <h2 class="section-title">Coveted Luxury Enclaves</h2>
+          <p class="section-subtitle">Exclusive insight into the most desirable waterfront and urban markets.</p>
+        </div>
+        <div class="neighborhoods-grid">
+          <div class="dest-card" onclick="filterByLocationAndOpen('Austin')">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Austin" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Austin, Texas</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Lady Bird Lake penthouses, Tech Corridor compounds, and hill country estates.</p>
+              <div class="dest-stats">
+                <div><span>Avg. Luxury Price</span><br /><strong>$1.45M</strong></div>
+                <div><span>Active Portfolio</span><br /><strong>3 Listings</strong></div>
+              </div>
+              <span style="color: var(--gold); font-weight: 700; font-size: 0.875rem;">Explore Austin Residences →</span>
+            </div>
+          </div>
+
+          <div class="dest-card" onclick="filterByLocationAndOpen('Malibu')">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Malibu" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Malibu, California</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Pacific Coast bluffside villas, private beach access, and architectural sanctuaries.</p>
+              <div class="dest-stats">
+                <div><span>Avg. Luxury Price</span><br /><strong>$2.85M</strong></div>
+                <div><span>Active Portfolio</span><br /><strong>1 Listing</strong></div>
+              </div>
+              <span style="color: var(--gold); font-weight: 700; font-size: 0.875rem;">Explore Malibu Residences →</span>
+            </div>
+          </div>
+
+          <div class="dest-card" onclick="filterByLocationAndOpen('Miami')">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Miami" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Miami, Florida</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Direct Biscayne Bay frontage, yacht marina slips, and skyline sky lounges.</p>
+              <div class="dest-stats">
+                <div><span>Avg. Luxury Price</span><br /><strong>$1.97M</strong></div>
+                <div><span>Active Portfolio</span><br /><strong>1 Listing</strong></div>
+              </div>
+              <span style="color: var(--gold); font-weight: 700; font-size: 0.875rem;">Explore Miami Residences →</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
 
     <!-- =========================================================
-         PAGE 2: ALL PROPERTIES CATALOG
+         PAGE 2: PROPERTIES CATALOG (WITH SIDEBAR FILTER PANEL)
          ========================================================= -->
     <div id="page-properties" class="page-view">
-      <div class="container" style="padding-top: 3rem;">
-        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-          <div class="section-tag">Live Inventory</div>
-          <h2 class="section-title">Luxury Properties For Sale & Rent</h2>
-          <p class="section-subtitle" style="margin: 0;">Browse our complete portfolio of premier residential real estate.</p>
+      <div class="container">
+        
+        <div class="properties-layout">
+          
+          <!-- Left Sticky Sidebar Filter Panel -->
+          <aside class="filter-sidebar">
+            <div class="sidebar-title">
+              <span>Filter Portfolio</span>
+              <button onclick="resetAllFilters()">Reset All</button>
+            </div>
+
+            <!-- Search Keyword -->
+            <div class="sidebar-section">
+              <label class="sidebar-label">Search by Keyword</label>
+              <div class="search-input-wrap">
+                <i data-lucide="search"></i>
+                <input type="text" id="side-search-keyword" placeholder="e.g. Penthouse, Ocean, Austin" oninput="executeSidebarFilter()" />
+              </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="sidebar-section">
+              <label class="sidebar-label">Prime Location</label>
+              <div class="filter-chips">
+                <label class="chip-item active" id="chip-loc-all" onclick="selectLocationFilter('')">
+                  <input type="radio" name="side-loc" value="" checked />
+                  <span>All Locations (6)</span>
+                </label>
+                <label class="chip-item" id="chip-loc-austin" onclick="selectLocationFilter('Austin')">
+                  <input type="radio" name="side-loc" value="Austin" />
+                  <span>Austin, TX (3)</span>
+                </label>
+                <label class="chip-item" id="chip-loc-malibu" onclick="selectLocationFilter('Malibu')">
+                  <input type="radio" name="side-loc" value="Malibu" />
+                  <span>Malibu, CA (1)</span>
+                </label>
+                <label class="chip-item" id="chip-loc-miami" onclick="selectLocationFilter('Miami')">
+                  <input type="radio" name="side-loc" value="Miami" />
+                  <span>Miami, FL (1)</span>
+                </label>
+                <label class="chip-item" id="chip-loc-roundrock" onclick="selectLocationFilter('Round Rock')">
+                  <input type="radio" name="side-loc" value="Round Rock" />
+                  <span>Round Rock, TX (1)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Property Type Filter -->
+            <div class="sidebar-section">
+              <label class="sidebar-label">Property Type</label>
+              <div class="filter-chips">
+                <label class="chip-item active" id="chip-type-all" onclick="selectTypeFilter('')">
+                  <input type="radio" name="side-type" value="" checked />
+                  <span>All Types</span>
+                </label>
+                <label class="chip-item" id="chip-type-villa" onclick="selectTypeFilter('villa')">
+                  <input type="radio" name="side-type" value="villa" />
+                  <span>Villa & Compound</span>
+                </label>
+                <label class="chip-item" id="chip-type-apartment" onclick="selectTypeFilter('apartment')">
+                  <input type="radio" name="side-type" value="apartment" />
+                  <span>Penthouse / Apartment</span>
+                </label>
+                <label class="chip-item" id="chip-type-condo" onclick="selectTypeFilter('condo')">
+                  <input type="radio" name="side-type" value="condo" />
+                  <span>Luxury Condo</span>
+                </label>
+                <label class="chip-item" id="chip-type-house" onclick="selectTypeFilter('house')">
+                  <input type="radio" name="side-type" value="house" />
+                  <span>Family Estate</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Max Budget Filter -->
+            <div class="sidebar-section">
+              <label class="sidebar-label">Max Budget ($)</label>
+              <div class="search-input-wrap">
+                <i data-lucide="dollar-sign"></i>
+                <input type="number" id="side-max-price" placeholder="e.g. 2000000" oninput="executeSidebarFilter()" />
+              </div>
+            </div>
+
+            <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="executeSidebarFilter()">
+              Apply Filters
+            </button>
+          </aside>
+
+          <!-- Right Content Area -->
+          <div class="catalog-content">
+            
+            <div class="catalog-top-bar">
+              <div class="results-count">
+                Showing <strong id="catalog-count">6</strong> Luxury Residences
+              </div>
+              <div class="sort-wrap">
+                <label style="font-size: 0.85rem; color: var(--text-muted);">Sort By:</label>
+                <select id="catalog-sort" onchange="executeSort()">
+                  <option value="featured">Featured First</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="sqft-desc">Size: Largest First</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Main Listings Grid -->
+            <div id="catalog-grid" class="listings-grid">
+              <!-- Injected via JS -->
+            </div>
+
+          </div>
+
         </div>
 
-        <!-- Filter Controls -->
-        <div class="search-box" style="margin-bottom: 3rem;">
-          <div class="filter-group">
-            <label>City / Location</label>
-            <select id="catalog-filter-city" onchange="applyCatalogFilters()">
-              <option value="">All Locations</option>
-              <option value="Austin">Austin, TX</option>
-              <option value="Malibu">Malibu, CA</option>
-              <option value="Miami">Miami, FL</option>
-              <option value="Round Rock">Round Rock, TX</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Property Type</label>
-            <select id="catalog-filter-type" onchange="applyCatalogFilters()">
-              <option value="">All Types</option>
-              <option value="villa">Villa & Estate</option>
-              <option value="apartment">Penthouse / Apt</option>
-              <option value="condo">Luxury Condo</option>
-              <option value="house">Family Estate</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Max Price ($)</label>
-            <input type="number" id="catalog-filter-maxPrice" placeholder="e.g. 2000000" oninput="applyCatalogFilters()" />
-          </div>
-          <button class="btn-outline" style="height: 48px; border-radius: 10px;" onclick="resetCatalogFilters()">
-            Reset Filters
-          </button>
-        </div>
-
-        <!-- Catalog Grid -->
-        <div id="catalog-grid" class="listings-grid">
-          <!-- Rendered via JS -->
-        </div>
       </div>
     </div>
 
@@ -1039,10 +1210,13 @@
     <div id="page-property-detail" class="page-view">
       <div class="container detail-view">
         
-        <!-- Back Navigation -->
-        <div class="back-bar">
-          <button class="back-btn" onclick="navigateTo('properties')">
-            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to All Properties
+        <!-- Back Navigation Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <button class="btn-outline" onclick="navigateTo('properties')">
+            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Portfolio
+          </button>
+          <button class="btn-outline" onclick="copyPropertyShareLink()">
+            <i data-lucide="share-2" style="width: 16px; height: 16px;"></i> Share Listing
           </button>
         </div>
 
@@ -1062,12 +1236,12 @@
           <!-- Left Main Content -->
           <div class="detail-main-content">
             <div class="detail-header">
-              <div class="detail-tags">
+              <div style="display: flex; gap: 10px; margin-bottom: 0.75rem;">
                 <span class="card-badge" id="detail-status-badge">FOR SALE</span>
                 <span class="card-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);" id="detail-type-badge">VILLA</span>
               </div>
               <h1 class="detail-title" id="detail-title">Property Title</h1>
-              <div class="detail-address">
+              <div style="color: var(--text-muted); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
                 <i data-lucide="map-pin" style="color: var(--gold); width: 18px; height: 18px;"></i>
                 <span id="detail-address-text">Address Line</span>
               </div>
@@ -1105,7 +1279,7 @@
             <!-- Description -->
             <div class="detail-section">
               <h3 class="detail-section-title"><i data-lucide="file-text"></i> About this Residence</h3>
-              <p class="detail-desc" id="detail-desc-text">Full description</p>
+              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.8;" id="detail-desc-text">Full description</p>
             </div>
 
             <!-- Key Architectural Highlights -->
@@ -1129,13 +1303,13 @@
               <h3 class="detail-section-title"><i data-lucide="calculator"></i> Estimated Mortgage for this Residence</h3>
               <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Estimated monthly payment with 20% down payment over 30 years at 6.5% interest.</p>
               
-              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); padding: 1.25rem 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); padding: 1.25rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); flex-wrap: wrap; gap: 1rem;">
                 <div>
-                  <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); display: block;">Estimated Monthly EMI</span>
+                  <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); display: block;">Estimated Monthly Payment</span>
                   <strong style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--gold-light);" id="prop-calc-emi">$0 / mo</strong>
                 </div>
                 <button class="btn-outline" onclick="openDedicatedCalcForProperty()">
-                  Customize Terms <i data-lucide="sliders" style="width: 14px; height: 14px;"></i>
+                  Customize Financing Terms <i data-lucide="sliders" style="width: 14px; height: 14px;"></i>
                 </button>
               </div>
             </div>
@@ -1144,11 +1318,11 @@
 
           <!-- Right Sticky Inquiry Form Sidebar -->
           <div class="detail-sidebar">
-            <div class="sidebar-price-label">Acquisition Price</div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Acquisition Price</div>
             <div class="sidebar-price" id="detail-price-text">$0</div>
 
             <h3 style="font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff;">Schedule Private Viewing</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Our private wealth advisors will coordinate a discreet private walkthrough.</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Our private wealth advisors will coordinate a confidential walkthrough.</p>
 
             <form id="detail-inquiry-form" onsubmit="handleDetailInquirySubmit(event)">
               <div class="form-field">
@@ -1169,9 +1343,9 @@
               </div>
               <div class="form-field">
                 <label>Special Requests or Questions</label>
-                <textarea id="detail-form-message" rows="3" placeholder="Tell us if you'd like a virtual tour or specific time..."></textarea>
+                <textarea id="detail-form-message" rows="3" placeholder="Discreet viewing, virtual video walkthrough, etc."></textarea>
               </div>
-              <button type="submit" class="sidebar-submit" id="detail-form-btn">
+              <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;" id="detail-form-btn">
                 Request Private Showing
               </button>
             </form>
@@ -1182,14 +1356,194 @@
     </div>
 
     <!-- =========================================================
-         PAGE 4: MORTGAGE CALCULATOR
+         PAGE 4: NEIGHBORHOODS & DESTINATIONS GUIDE
+         ========================================================= -->
+    <div id="page-neighborhoods" class="page-view">
+      <div class="container" style="padding: 3rem 0 5rem;">
+        <div class="section-header">
+          <div class="section-tag">Global Prime Markets</div>
+          <h2 class="section-title">Prime Residential Enclaves</h2>
+          <p class="section-subtitle">Comprehensive market intelligence on the most coveted luxury zip codes.</p>
+        </div>
+
+        <div class="neighborhoods-grid">
+          <!-- Austin -->
+          <div class="dest-card">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Austin" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Austin, Texas</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1rem;">Austin combines vibrant cultural innovation with tranquil lakeside living. Known as the tech frontier, luxury buyers favor Lady Bird Lake penthouses, Westlake Hills estates, and Congress Avenue historic lofts.</p>
+              <div class="dest-stats">
+                <div><span>Average $/SqFt</span><br /><strong>$820 / sqft</strong></div>
+                <div><span>Tax Climate</span><br /><strong>0% State Income Tax</strong></div>
+              </div>
+              <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="filterByLocationAndOpen('Austin')">
+                View Austin Portfolio (3 Residences)
+              </button>
+            </div>
+          </div>
+
+          <!-- Malibu -->
+          <div class="dest-card">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Malibu" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Malibu, California</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1rem;">The epitome of West Coast coastal prestige. 21 miles of coastline boasting dramatic blufftop architectural masterworks, private beach compounds, and infinity pools cascading toward the Pacific.</p>
+              <div class="dest-stats">
+                <div><span>Average $/SqFt</span><br /><strong>$1,850 / sqft</strong></div>
+                <div><span>Lifestyle</span><br /><strong>Oceanfront Private Beach</strong></div>
+              </div>
+              <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="filterByLocationAndOpen('Malibu')">
+                View Malibu Portfolio (1 Residence)
+              </button>
+            </div>
+          </div>
+
+          <!-- Miami -->
+          <div class="dest-card">
+            <div class="dest-img">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Miami" />
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Miami, Florida</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1rem;">An international nexus for global commerce and luxury lifestyle. Fronting Biscayne Bay with private deep-water yacht docks, sky residences designed by Pritzker-winning architects, and white-glove beach clubs.</p>
+              <div class="dest-stats">
+                <div><span>Average $/SqFt</span><br /><strong>$1,250 / sqft</strong></div>
+                <div><span>Marina Access</span><br /><strong>Superyacht Berths</strong></div>
+              </div>
+              <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="filterByLocationAndOpen('Miami')">
+                View Miami Portfolio (1 Residence)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PAGE 5: PRIVATE CLIENT SERVICES & ADVISORY
+         ========================================================= -->
+    <div id="page-services" class="page-view">
+      <div class="container" style="padding: 3rem 0 5rem;">
+        <div class="section-header">
+          <div class="section-tag">Bespoke Advisory</div>
+          <h2 class="section-title">Private Wealth Real Estate Services</h2>
+          <p class="section-subtitle">Tailored client representation for high-net-worth individuals, family offices, and sovereign wealth entities.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="shield-check"></i></div>
+            <h3 class="service-title">Off-Market Acquisitions</h3>
+            <p class="service-desc">Over 40% of prime luxury transactions occur silently off-market. Our private network grants discreet, unlisted access to trophy residential properties before public listing.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="landmark"></i></div>
+            <h3 class="service-title">Private Wealth Portfolio Strategy</h3>
+            <p class="service-desc">Holistic real estate asset allocation consulting across primary residences, secondary coastal retreats, and high-yield prime capital appreciation holdings.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="compass"></i></div>
+            <h3 class="service-title">Relocation & Lifestyle Concierge</h3>
+            <p class="service-desc">White-glove executive transition advisory including state tax optimization alignment, private aviation access, security compound planning, and elite private school admissions coordination.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="anchor"></i></div>
+            <h3 class="service-title">Waterfront & Yacht Berth Advisory</h3>
+            <p class="service-desc">Specialized technical evaluation for deep-water dockage, tidal clearance, ocean seawalls, and superyacht mooring rights in Southern California and South Florida.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="gem"></i></div>
+            <h3 class="service-title">Architectural & Interior Design Curation</h3>
+            <p class="service-desc">Connecting clients with international Pritzker-prize winning architects, custom furniture ateliers, and smart home automation engineers.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="lock"></i></div>
+            <h3 class="service-title">Confidential Seller Representation</h3>
+            <p class="service-desc">Discreet divestment strategies protecting seller privacy through non-disclosure agreements, qualified private buyer screenings, and targeted private wealth showcases.</p>
+          </div>
+        </div>
+
+        <!-- Consultation Banner -->
+        <div style="background: linear-gradient(135deg, var(--bg-surface), #131f38); border: 1px solid var(--gold); border-radius: 20px; padding: 3rem; text-align: center; box-shadow: 0 10px 30px var(--gold-glow);">
+          <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 0.75rem; color: #fff;">Initiate a Confidential Consultation</h3>
+          <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 1.5rem;">Speak directly with a Senior Managing Partner regarding private acquisitions or confidential representation.</p>
+          <button class="btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem;" onclick="navigateTo('contact')">
+            Schedule Private Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PAGE 6: MARKET JOURNAL & INSIGHTS
+         ========================================================= -->
+    <div id="page-journal" class="page-view">
+      <div class="container" style="padding: 3rem 0 5rem;">
+        <div class="section-header">
+          <div class="section-tag">Market Intelligence</div>
+          <h2 class="section-title">The LuxeHaven Journal</h2>
+          <p class="section-subtitle">Proprietary quarterly reports, architectural features, and luxury market trend analyses.</p>
+        </div>
+
+        <div class="journal-grid">
+          <!-- Article 1 -->
+          <div class="journal-card" onclick="alert('Full Q1 2026 Luxury Real Estate Report will download in PDF format upon request.')">
+            <div class="journal-img">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Market Report" />
+            </div>
+            <div class="journal-body">
+              <div class="journal-date">Q1 2026 Report • Market Intelligence</div>
+              <h3 class="journal-title">The Rise of Coastal Micro-Compounds: Malibu & South Florida Insights</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Why private multi-structure compounds with independent wellness casitas and power microgrids are commanding 35% premiums.</p>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="journal-card" onclick="alert('Architectural briefing available on demand.')">
+            <div class="journal-img">
+              <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Austin Penthouses" />
+            </div>
+            <div class="journal-body">
+              <div class="journal-date">Architecture • Urban Design</div>
+              <h3 class="journal-title">Vertical Havens: How High-Altitude Penthouses Redefined Downtown Austin</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">An architectural study on 360-degree glass facades and private sky terraces overlooking Lady Bird Lake.</p>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="journal-card" onclick="alert('Financing whitepaper available on demand.')">
+            <div class="journal-img">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Private Wealth" />
+            </div>
+            <div class="journal-body">
+              <div class="journal-date">Financing & Wealth • Strategy</div>
+              <h3 class="journal-title">Private Wealth Mortgages: Structuring Multi-Million Dollar Trophy Acquisitions</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Navigating asset-backed jumbo financing and interest rate amortization for sovereign and high-net-worth portfolios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PAGE 7: MORTGAGE & FINANCING CALCULATOR
          ========================================================= -->
     <div id="page-calculator" class="page-view">
       <div class="container" style="padding-top: 3rem;">
         <div class="section-header">
-          <div class="section-tag">Financial Advisory</div>
+          <div class="section-tag">Financial Suite</div>
           <h2 class="section-title">Mortgage & Financing Suite</h2>
-          <p class="section-subtitle">Real-time payment calculation, interest amortization, and financing breakdown.</p>
+          <p class="section-subtitle">Real-time payment calculation, interest amortization, and financing breakdown powered by serverless compute.</p>
         </div>
 
         <div class="calc-page-box">
@@ -1229,7 +1583,7 @@
             </div>
 
             <div class="calc-result-box">
-              <div class="calc-result-label">Estimated Monthly EMI</div>
+              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated Monthly Payment</div>
               <div class="calc-result-value" id="full-calc-monthly-emi">$6,320</div>
               <div class="calc-breakdown">
                 <div>
@@ -1253,7 +1607,7 @@
     </div>
 
     <!-- =========================================================
-         PAGE 5: ABOUT US
+         PAGE 8: ABOUT US
          ========================================================= -->
     <div id="page-about" class="page-view">
       <div class="container" style="padding-top: 3rem;">
@@ -1263,7 +1617,7 @@
           <p class="section-subtitle">Exclusively representing premier buyers and sellers in the world's most coveted destinations.</p>
         </div>
 
-        <div class="about-story">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem;">
           <div>
             <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">Pioneering Luxury Real Estate Representation</h3>
             <p style="color: #cbd5e1; margin-bottom: 1.2rem; font-size: 1.05rem;">Founded on principles of absolute confidentiality, white-glove advisory, and market dominance, LuxeHaven Properties bridges discerning buyers with private off-market listings and architectural trophy residences.</p>
@@ -1273,37 +1627,15 @@
               <button class="btn-outline" onclick="navigateTo('properties')">Explore Portfolio</button>
             </div>
           </div>
-          <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="LuxeHaven Office" />
-          </div>
-        </div>
-
-        <!-- Leadership -->
-        <div class="section-header" style="margin-bottom: 2rem;">
-          <h3 class="section-title" style="font-size: 1.8rem;">Senior Managing Partners</h3>
-        </div>
-        <div class="team-grid">
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Marcus Vance" />
-            <div class="team-name">Marcus Vance</div>
-            <div class="team-role">Managing Director — West Coast</div>
-          </div>
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Elena Rostova" />
-            <div class="team-name">Elena Rostova</div>
-            <div class="team-role">Head of Waterfront Acquisitions</div>
-          </div>
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Julian Chen" />
-            <div class="team-name">Julian Chen</div>
-            <div class="team-role">Private Client Wealth Advisor</div>
+          <div style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border);">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="LuxeHaven Office" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
           </div>
         </div>
       </div>
     </div>
 
     <!-- =========================================================
-         PAGE 6: CONTACT US
+         PAGE 9: CONTACT US
          ========================================================= -->
     <div id="page-contact" class="page-view">
       <div class="container" style="padding-top: 3rem;">
@@ -1313,25 +1645,25 @@
           <p class="section-subtitle">Reach our private wealth advisory team for confidential real estate consultations.</p>
         </div>
 
-        <div class="contact-grid">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
           <!-- Offices info -->
           <div>
-            <div class="office-card">
-              <i data-lucide="building-2"></i>
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; display: flex; gap: 1rem;">
+              <i data-lucide="building-2" style="color: var(--gold);"></i>
               <div>
                 <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 4px;">Austin Corporate Headquarters</h4>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">88 Meridian Avenue, Suite 400<br />Austin, TX 78701<br />+1 (512) 555-0190</p>
               </div>
             </div>
-            <div class="office-card">
-              <i data-lucide="palmtree"></i>
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; display: flex; gap: 1rem;">
+              <i data-lucide="palmtree" style="color: var(--gold);"></i>
               <div>
                 <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 4px;">Malibu Coastal Advisory</h4>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">23400 Pacific Coast Highway<br />Malibu, CA 90265<br />+1 (310) 555-0144</p>
               </div>
             </div>
-            <div class="office-card">
-              <i data-lucide="anchor"></i>
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; display: flex; gap: 1rem;">
+              <i data-lucide="anchor" style="color: var(--gold);"></i>
               <div>
                 <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 4px;">Miami Waterfront Gallery</h4>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">9 Harbor Point Blvd, Floor 18<br />Miami, FL 33132<br />+1 (305) 555-0188</p>
@@ -1359,7 +1691,9 @@
                 <label>Message / Inquiries</label>
                 <textarea id="contact-message" rows="4" placeholder="How may our advisors assist you?" required></textarea>
               </div>
-              <button type="submit" class="sidebar-submit" id="contact-submit-btn">Send Confidential Inquiry</button>
+              <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;" id="contact-submit-btn">
+                Send Confidential Inquiry
+              </button>
             </form>
           </div>
         </div>
@@ -1386,27 +1720,30 @@
           <ul>
             <li><a onclick="navigateTo('home')">Home</a></li>
             <li><a onclick="navigateTo('properties')">Properties Portfolio</a></li>
+            <li><a onclick="navigateTo('neighborhoods')">Neighborhoods</a></li>
+            <li><a onclick="navigateTo('services')">Private Client Services</a></li>
+            <li><a onclick="navigateTo('journal')">Market Journal</a></li>
             <li><a onclick="navigateTo('calculator')">Mortgage Estimator</a></li>
             <li><a onclick="navigateTo('about')">About LuxeHaven</a></li>
             <li><a onclick="navigateTo('contact')">Private Inquiries</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Key Locations</h4>
+          <h4>Prime Locations</h4>
           <ul>
-            <li><a onclick="filterByCityAndNavigate('Austin')">Austin, TX</a></li>
-            <li><a onclick="filterByCityAndNavigate('Malibu')">Malibu, CA</a></li>
-            <li><a onclick="filterByCityAndNavigate('Miami')">Miami, FL</a></li>
-            <li><a onclick="filterByCityAndNavigate('Round Rock')">Round Rock, TX</a></li>
+            <li><a onclick="filterByLocationAndOpen('Austin')">Austin, TX</a></li>
+            <li><a onclick="filterByLocationAndOpen('Malibu')">Malibu, CA</a></li>
+            <li><a onclick="filterByLocationAndOpen('Miami')">Miami, FL</a></li>
+            <li><a onclick="filterByLocationAndOpen('Round Rock')">Round Rock, TX</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Client Services</h4>
+          <h4>Private Wealth</h4>
           <ul>
-            <li><a onclick="navigateTo('contact')">Private Wealth Representation</a></li>
-            <li><a onclick="navigateTo('contact')">Off-Market Acquisitions</a></li>
-            <li><a onclick="navigateTo('contact')">Discreet Sales Advisory</a></li>
-            <li><a onclick="navigateTo('contact')">Yacht & Waterfront Estates</a></li>
+            <li><a onclick="navigateTo('services')">Off-Market Acquisitions</a></li>
+            <li><a onclick="navigateTo('services')">Waterfront Compounds</a></li>
+            <li><a onclick="navigateTo('services')">Discreet Sales Advisory</a></li>
+            <li><a onclick="navigateTo('contact')">Schedule Appointment</a></li>
           </ul>
         </div>
       </div>
@@ -1419,19 +1756,29 @@
   </footer>
 
   <script>
-    // State Store
+    // State
     let allProperties = [];
     let activeProperty = null;
+    let selectedLocation = "";
+    let selectedType = "";
+    let savedFavorites = new Set();
+
+    // Show Toast
+    function showToast(msg) {
+      const el = document.getElementById('app-toast');
+      const text = document.getElementById('toast-message');
+      text.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 3200);
+    }
 
     // Client-side Router
     function navigateTo(pageId, extraParam = null) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Hide all page views
       document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-links a').forEach(el => el.classList.remove('active'));
 
-      // Update Nav active indicator
       const navItem = document.getElementById(`nav-${pageId}`);
       if (navItem) navItem.classList.add('active');
 
@@ -1449,13 +1796,13 @@
       lucide.createIcons();
     }
 
-    // Handle Hash Routing on Load & Back/Forward
+    // Handle Hash Routing
     function handleHashChange() {
       const hash = window.location.hash.replace(/^#/, '');
       if (hash.startsWith('property/')) {
         const propId = hash.replace('property/', '');
         navigateTo('property-detail', propId);
-      } else if (['home', 'properties', 'calculator', 'about', 'contact'].includes(hash)) {
+      } else if (['home', 'properties', 'neighborhoods', 'services', 'journal', 'calculator', 'about', 'contact'].includes(hash)) {
         navigateTo(hash);
       } else {
         navigateTo('home');
@@ -1463,7 +1810,7 @@
     }
     window.addEventListener('hashchange', handleHashChange);
 
-    // Initial Fetch All Properties
+    // Initial Fetch
     async function initProperties() {
       try {
         const res = await fetch('/api/properties');
@@ -1478,11 +1825,10 @@
       }
     }
 
-    // Render Home Featured Cards
+    // Render Featured Cards on Home
     function renderFeaturedListings(properties) {
       const container = document.getElementById('home-featured-grid');
       if (!container) return;
-
       container.innerHTML = properties.map(p => createPropertyCardHtml(p)).join('');
       lucide.createIcons();
     }
@@ -1490,24 +1836,30 @@
     // Render Catalog Listings
     function renderCatalogListings(properties) {
       const container = document.getElementById('catalog-grid');
+      const countEl = document.getElementById('catalog-count');
+      if (countEl) countEl.textContent = properties ? properties.length : 0;
       if (!container) return;
 
       if (!properties || properties.length === 0) {
-        container.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:4rem; color:var(--text-muted);">No properties found matching the selected filters.</div>`;
+        container.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:4rem; color:var(--text-muted);">No luxury properties found matching your criteria.</div>`;
         return;
       }
       container.innerHTML = properties.map(p => createPropertyCardHtml(p)).join('');
       lucide.createIcons();
     }
 
-    // Template Generator for Property Card
+    // Card HTML Template
     function createPropertyCardHtml(p) {
+      const isSaved = savedFavorites.has(p.id);
       const imageSrc = (p.images && p.images[0]) || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9";
       return `
         <div class="property-card" onclick="navigateTo('property-detail', '${p.id}')">
           <div class="card-media">
             <img src="${imageSrc}" alt="${p.title}" loading="lazy" />
             <div class="card-badge">${p.type} • ${p.status}</div>
+            <button class="card-fav-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveProperty(event, '${p.id}')" title="Save property">
+              <i data-lucide="heart" style="width:16px; height:16px; ${isSaved ? 'fill: currentColor;' : ''}"></i>
+            </button>
             <div class="card-price">$${p.price.toLocaleString()}${p.priceUnit ? '/' + p.priceUnit : ''}</div>
           </div>
           <div class="card-body">
@@ -1519,7 +1871,7 @@
               <div class="spec-item"><i data-lucide="maximize" style="width:14px; height:14px;"></i> <strong>${p.specs.areaSqft.toLocaleString()}</strong> SqFt</div>
             </div>
             <div class="card-footer">
-              <span>View Full Features & Gallery</span>
+              <span>View Architectural Details</span>
               <i data-lucide="chevron-right" style="width:16px; height:16px;"></i>
             </div>
           </div>
@@ -1527,9 +1879,110 @@
       `;
     }
 
-    // Load and Render Single Property Detail View
+    function toggleSaveProperty(e, propId) {
+      e.stopPropagation();
+      if (savedFavorites.has(propId)) {
+        savedFavorites.delete(propId);
+        showToast("Removed from saved residences");
+      } else {
+        savedFavorites.add(propId);
+        showToast("Saved to your private collection ❤️");
+      }
+      executeSidebarFilter();
+    }
+
+    // Sidebar Filter Actions
+    function selectLocationFilter(city) {
+      selectedLocation = city;
+      document.querySelectorAll('[id^="chip-loc-"]').forEach(el => el.classList.remove('active'));
+      const id = city ? `chip-loc-${city.toLowerCase().replace(/\s+/g, '')}` : 'chip-loc-all';
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+      executeSidebarFilter();
+    }
+
+    function selectTypeFilter(type) {
+      selectedType = type;
+      document.querySelectorAll('[id^="chip-type-"]').forEach(el => el.classList.remove('active'));
+      const id = type ? `chip-type-${type.toLowerCase()}` : 'chip-type-all';
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+      executeSidebarFilter();
+    }
+
+    function resetAllFilters() {
+      selectedLocation = "";
+      selectedType = "";
+      document.getElementById('side-search-keyword').value = "";
+      document.getElementById('side-max-price').value = "";
+      selectLocationFilter("");
+      selectTypeFilter("");
+    }
+
+    function filterByLocationAndOpen(city) {
+      selectLocationFilter(city);
+      navigateTo('properties');
+    }
+
+    // Execute Sidebar Filtering
+    async function executeSidebarFilter() {
+      const keyword = (document.getElementById('side-search-keyword')?.value || "").toLowerCase().trim();
+      const maxPrice = document.getElementById('side-max-price')?.value;
+
+      const params = new URLSearchParams();
+      if (selectedLocation) params.append('city', selectedLocation);
+      if (selectedType) params.append('type', selectedType);
+      if (maxPrice) params.append('maxPrice', maxPrice);
+
+      try {
+        const res = await fetch(`/api/properties?${params.toString()}`);
+        const json = await res.json();
+        if (json.success && json.data) {
+          let results = json.data;
+          if (keyword) {
+            results = results.filter(p => 
+              p.title.toLowerCase().includes(keyword) ||
+              p.address.city.toLowerCase().includes(keyword) ||
+              p.type.toLowerCase().includes(keyword) ||
+              (p.description && p.description.toLowerCase().includes(keyword))
+            );
+          }
+          renderCatalogListings(results);
+          executeSort();
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function executeSort() {
+      const sortType = document.getElementById('catalog-sort')?.value || 'featured';
+      const container = document.getElementById('catalog-grid');
+      const countEl = document.getElementById('catalog-count');
+
+      let currentProps = [...allProperties];
+      if (selectedLocation) currentProps = currentProps.filter(p => p.address.city.toLowerCase() === selectedLocation.toLowerCase());
+      if (selectedType) currentProps = currentProps.filter(p => p.type.toLowerCase() === selectedType.toLowerCase());
+
+      const maxP = document.getElementById('side-max-price')?.value;
+      if (maxP) currentProps = currentProps.filter(p => p.price <= Number(maxP));
+
+      const kw = (document.getElementById('side-search-keyword')?.value || "").toLowerCase().trim();
+      if (kw) currentProps = currentProps.filter(p => p.title.toLowerCase().includes(kw) || p.address.city.toLowerCase().includes(kw));
+
+      if (sortType === 'price-desc') {
+        currentProps.sort((a, b) => b.price - a.price);
+      } else if (sortType === 'price-asc') {
+        currentProps.sort((a, b) => a.price - b.price);
+      } else if (sortType === 'sqft-desc') {
+        currentProps.sort((a, b) => b.specs.areaSqft - a.specs.areaSqft);
+      }
+
+      renderCatalogListings(currentProps);
+    }
+
+    // Single Property Detail Loader
     async function loadPropertyDetail(propertyId) {
-      // First find in loaded array or fetch
       let prop = allProperties.find(p => p.id === propertyId);
       if (!prop) {
         try {
@@ -1586,7 +2039,7 @@
       // Populate Description
       document.getElementById('detail-desc-text').textContent = prop.description || "A pristine architectural masterpiece boasting unparalleled luxury finishes and world-class craftsmanship.";
 
-      // Populate Highlights
+      // Highlights
       const highlightsList = document.getElementById('detail-highlights-list');
       const highlights = prop.highlights || [
         "Unobstructed Panoramic Views",
@@ -1598,14 +2051,14 @@
         <li class="highlight-item"><i data-lucide="check"></i> ${h}</li>
       `).join('');
 
-      // Populate Amenities
+      // Amenities
       const amenitiesGrid = document.getElementById('detail-amenities-grid');
       const amenities = prop.amenities || ["Rooftop Pool", "Concierge", "Smart Home", "Gym", "Private Parking"];
       amenitiesGrid.innerHTML = amenities.map(a => `
         <div class="amenity-chip"><i data-lucide="sparkle"></i> ${a}</div>
       `).join('');
 
-      // Update property-specific mortgage estimation
+      // Mortgage estimate for property
       calculatePropMortgagePreview(prop.price);
 
       lucide.createIcons();
@@ -1613,6 +2066,11 @@
 
     function swapMainImage(newSrc) {
       document.getElementById('detail-img-main').src = newSrc;
+    }
+
+    function copyPropertyShareLink() {
+      navigator.clipboard.writeText(window.location.href);
+      showToast("Listing URL copied to clipboard! 🔗");
     }
 
     async function calculatePropMortgagePreview(price) {
@@ -1718,57 +2176,6 @@
       }
     }
 
-    // Home Page Search
-    function searchFromHome() {
-      const city = document.getElementById('home-filter-city').value;
-      const type = document.getElementById('home-filter-type').value;
-      const maxPrice = document.getElementById('home-filter-maxPrice').value;
-
-      document.getElementById('catalog-filter-city').value = city;
-      document.getElementById('catalog-filter-type').value = type;
-      document.getElementById('catalog-filter-maxPrice').value = maxPrice;
-
-      applyCatalogFilters();
-      navigateTo('properties');
-    }
-
-    function filterByCityAndNavigate(city) {
-      document.getElementById('catalog-filter-city').value = city;
-      document.getElementById('catalog-filter-type').value = "";
-      document.getElementById('catalog-filter-maxPrice').value = "";
-      applyCatalogFilters();
-      navigateTo('properties');
-    }
-
-    // Catalog Filters
-    async function applyCatalogFilters() {
-      const city = document.getElementById('catalog-filter-city').value;
-      const type = document.getElementById('catalog-filter-type').value;
-      const maxPrice = document.getElementById('catalog-filter-maxPrice').value;
-
-      const params = new URLSearchParams();
-      if (city) params.append('city', city);
-      if (type) params.append('type', type);
-      if (maxPrice) params.append('maxPrice', maxPrice);
-
-      try {
-        const res = await fetch(`/api/properties?${params.toString()}`);
-        const json = await res.json();
-        if (json.success) {
-          renderCatalogListings(json.data);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
-    function resetCatalogFilters() {
-      document.getElementById('catalog-filter-city').value = "";
-      document.getElementById('catalog-filter-type').value = "";
-      document.getElementById('catalog-filter-maxPrice').value = "";
-      applyCatalogFilters();
-    }
-
     // Full Mortgage Calculator Logic
     async function fullRecalcMortgage() {
       const price = Number(document.getElementById('full-input-price').value);
@@ -1805,7 +2212,7 @@
       }
     }
 
-    // Initial Bootstrap
+    // Bootstrap
     document.addEventListener('DOMContentLoaded', () => {
       initProperties();
       fullRecalcMortgage();
