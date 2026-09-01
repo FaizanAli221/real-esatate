@@ -174,8 +174,13 @@ const server = http.createServer(async (req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   const pathname = parsedUrl.pathname.replace(/\/+$/, "") || "/";
 
-  // Root Dashboard
-  if (pathname === "/" || pathname === "/index.html") {
+  // Serve index.html for root / single page app routes
+  if (pathname === "/" || pathname === "/index.html" || !pathname.startsWith("/api/")) {
+    const indexPath = path.join(__dirname, "index.html");
+    if (fs.existsSync(indexPath)) {
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      return res.end(fs.readFileSync(indexPath, "utf-8"));
+    }
     return serveDashboard(res);
   }
 
