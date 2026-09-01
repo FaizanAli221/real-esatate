@@ -1,0 +1,17 @@
+{
+  "name": "luxehaven-properties-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Serverless backend API for LuxeHaven Properties, built for Vercel.",
+  "engines": {
+    "node": ">=18.x"
+  },
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js",
+    "dev:vercel": "vercel dev"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  }
+}
